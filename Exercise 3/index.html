@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App</title>
-    <script src="js/app.js" defer></script>
     <link rel="stylesheet" href="css/app.css" />
   </head>
   <body>
@@ -19,5 +18,76 @@
     <div class="container">
       <!-- The cards shall be in this container -->
     </div>
+    <script>
+      const COLORS = ["red", "blue", "green", "yellow", "orange", "purple"];
+      const container = document.querySelector(".container");
+      const createButton = document.querySelector("#create");
+
+      function randomColors() {
+        const randomIndex = Math.floor(Math.random() * COLORS.length);
+        return COLORS[randomIndex];
+      }
+
+      function createCard() {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.style.backgroundColor = randomColors();
+
+        const title = document.createElement("p");
+        title.textContent = "description";
+        card.appendChild(title);
+
+        const cardFooter = document.createElement("div");
+        cardFooter.className = "card-footer";
+
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove card";
+        removeButton.addEventListener("click", () => {
+          card.remove();
+        });
+ 
+        cardFooter.appendChild(removeButton);
+        card.appendChild(cardFooter);
+        container.appendChild(card);
+
+      }
+      createButton.addEventListener("click", createCard);
+    </script>
+
+<!-- <script>
+  const COLORS = ["red", "blue", "green", "yellow", "orange", "purple"];
+  const container = document.querySelector(".container"); // Fixed selector
+  const createButton = document.querySelector("#create"); // More specific selector
+
+  function randomColors() {
+    const randomIndex = Math.floor(Math.random() * COLORS.length);
+    return COLORS[randomIndex];
+  }
+
+  function createCard() {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.backgroundColor = randomColors();
+
+    const title = document.createElement("p");
+    title.textContent = "description";
+    card.appendChild(title);
+
+    const cardFooter = document.createElement("div"); // Fixed variable name
+    cardFooter.className = "card-footer"; // Fixed class name typo
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove card";
+    removeButton.addEventListener("click", () => {
+      card.remove();
+    });
+
+    cardFooter.appendChild(removeButton);
+    card.appendChild(cardFooter);
+    container.appendChild(card);
+  }
+
+  createButton.addEventListener("click", createCard); // Moved outside to prevent multiple event bindings -->
+</script>
   </body>
 </html>
