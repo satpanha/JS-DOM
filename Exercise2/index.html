@@ -12,8 +12,24 @@
         <div class="main-text">
             <h1 id="result-color">#FFFFFF</h1>
         </div>
-        <button>Random Color</button>
+        <button onclick="setRandomColor()">Random Color</button>
     </div>
 </body>
-<script src="js/main.js"></script>
+<script >
+    
+    function getRandomHexColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+
+    function setRandomColor() {
+        let color = getRandomHexColor();
+        document.body.style.backgroundColor = color;
+        document.getElementById('result-color').innerText = color;
+    }
+</script>
 </html>

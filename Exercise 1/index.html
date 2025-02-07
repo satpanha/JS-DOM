@@ -22,6 +22,25 @@
       <div class="item">9</div>
     </div>
 
-    <script src="js/app.js" defer></script>
+    <script>
+      //Q2
+      const item3 = document.getElementById("container1").lastElementChild;
+      const container2 = document.getElementById("container2");
+      container2.appendChild(item3);
+      //Q3
+      const item4 = document.getElementById("container2").firstElementChild;
+      item4.remove();
+      //Q4
+      const item10 = document.createElement('div');
+      item10.className = 'item';
+      item10.innerHTML = '10';
+      const container3 = document.getElementById("container3");
+      container3.appendChild(item10);
+      //Q5
+      const styleBlue = document.querySelectorAll(".containerBlue");
+      for(let i of styleBlue){
+          i.style.color = "red"; 
+      }
+    </script>
   </body>
 </html>
